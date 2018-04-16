@@ -1,0 +1,71 @@
+<div class="card border-dark" style="max-width: 18rem;">
+
+  <div class="card-header">
+    <button types="button" class="close" (click)="closeAddForm()">
+      <span>×</span>
+    </button>
+    <h6 class="card-title">Подробная информация</h6>
+  </div>
+
+  <div class="card-body text-dark">
+    <div class="form-group"> 
+      <label class="control-label" for="type">Тип события:</label>
+      <span class="badge badge-secondary">{{event.type}}</span>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label">Дата:</label>
+      <span class="badge badge-secondary">{{event.date}}</span>
+    </div>
+
+    <div *ngIf="event.type === 'Новость'; else finForm">
+      <div class="form-group">
+        <label class="control-label">Заголовок:</label>
+        <span class="badge badge-secondary">{{event.title}}</span>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label">Cодержание:</label>
+        <span class="badge badge-secondary">{{event.description}}</span>
+      </div>
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="Check1" (click)="changeColor()">
+        <label class="form-check-label">Ознакомлен</label>
+      </div>
+      <hr>
+      <button class="btn btn-outline-dark" type="submit" (click)="closeInfoForm()">Закрыть</button>
+    </div>
+
+    <ng-template #finForm>
+      <div class="form-group">
+        <label class="control-label" for="type">Приход/Расход:</label>
+        <span class="badge badge-secondary">{{event.operation}}</span>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label">Cумма:</label>
+        <span class="badge badge-secondary">{{event.sum}}</span>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label" for="type">Выберите валюту:</label>
+        <span class="badge badge-secondary">{{event.currency}}</span>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label" for="type">От кого:</label>
+        <span class="badge badge-secondary">{{event.from}}</span>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label" for="type">Описание:</label>
+        <span class="badge badge-secondary">{{event.description}}</span>
+      </div>
+      <hr>
+      <button class="btn btn-outline-dark" type="submit" (click)="closeInfoForm()">Закрыть</button>
+      <button type="submit" class="btn btn-dark" (click)="deleteEvent()">Удалить</button>
+
+    </ng-template>
+
+  </div>
+</div>

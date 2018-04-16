@@ -1,0 +1,28 @@
+<a href="#" class="list-group-item list-group-item-action col-md-12" (click)="openForm()" [ngClass]="{colorEvent: colorBg}">
+  <div class="row" *ngIf="event.title !== undefined && event.title !== null; else fin">
+    <div class="col-sm-4">{{event.title}}</div>
+    <div class="col-sm-4">{{event.date}}</div>
+  </div>
+
+  <ng-template #fin>
+    <div class="row">
+      <div class="col-sm-4">
+        <span class="badge badge-success" *ngIf="event.operation === 'Приход'; else operTemplate">
+          + {{event.sum}} {{event.currency}}
+        </span>
+        <ng-template #operTemplate>
+          <span class="badge badge-danger">
+            - {{event.sum}} {{event.currency}}
+          </span>
+        </ng-template>
+      </div>
+      <div class="col-sm-4">{{event.date}}</div>
+      <div class="col-sm-4">{{event.from}}</div>
+    </div>
+
+  </ng-template>
+  
+</a>
+
+<app-info 
+[ngClass]="{invisible: visibility}" [event]="event"></app-info>

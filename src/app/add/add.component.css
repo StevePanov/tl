@@ -1,0 +1,6 @@
+.card-body {
+    padding: 10px;
+}
+.control-label, .card-title, .form-group {
+    margin: 0;
+}
