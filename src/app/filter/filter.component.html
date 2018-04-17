@@ -1,0 +1,40 @@
+<div class="card border-dark" style="max-width: 18rem;">
+
+  <div class="card-header">
+    <button types="button" class="close" (click)="closeFilter()">
+      <span>×</span>
+    </button>
+    <h6 class="card-title">Фильтр событий</h6>
+  </div>
+
+  <div class="card-body text-dark">
+    <!-- <div class="form-group">
+      <label class="control-label" for="type">Выберите тип события</label>
+      <select class="form-control" id="type" name="type" [(ngModel)]="selectedType">
+        <option *ngFor="let t of types" [value]="selectedType">{{t}} </option>
+      </select>
+    </div> -->
+
+    <!-- <div class="form-group">
+      <label class="control-label" for="period">Выберите период</label>
+      <select class="form-control" id="period" [(ngModel)]="selectedPeriod">
+        <option *ngFor="let p of timePeriods" [value]="p.type">{{p.label}}</option>
+      </select>
+    </div> -->
+    <div class="form-group">
+      <label class="control-label" for="period">Выберите период времени</label>
+      <div>
+        <select class="form-control" id="period" [(ngModel)]="selectedPeriod">
+          <option *ngFor="let p of timePeriods" [value]="p.type">
+            {{p.label}}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="closeFilter()">Отмена</button>
+    <button type="button" class="btn btn-dark" (click)="applyFilter()">Добавить</button>
+  </div>
+
+</div>

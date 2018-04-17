@@ -7,6 +7,7 @@ import { AddComponent } from './add/add.component';
 import { FormsModule } from '@angular/forms';
 import { EventsComponent } from './events/events.component';
 import { InfoComponent } from './info/info.component';
+import { FilterComponent } from './filter/filter.component';
 // import { EventService } from './sevices/event.service';
 
 
@@ -15,7 +16,8 @@ import { InfoComponent } from './info/info.component';
     AppComponent,
     AddComponent,
     EventsComponent,
-    InfoComponent
+    InfoComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,

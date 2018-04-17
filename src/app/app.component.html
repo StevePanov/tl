@@ -1,5 +1,10 @@
-<div class="col-md-4">
-  <button type="button" class="btn btn-dark" (click)="openAddForm()">Добавить событие</button>
+<div class="row">
+  <div class="col-md-4">
+    <button type="button" class="btn btn-dark" (click)="openAddForm()">Добавить событие</button>
+  </div>
+  <div class="col-md-4">
+    <button type="button" class="btn btn-outline-dark" (click)="openFilter()">Фильтр</button>
+  </div>
 </div>
 <hr>
 
@@ -7,9 +12,17 @@
   <app-events *ngFor="let h of historyEvent" [event]="h"></app-events>
 </div>
 
+<div *ngIf="isFilterVisible">
+  <app-filter
+  (onFilterCancel)="onFilterCancel()"
+  (onfilterApply)="onFilterApply($event)"    
+  ></app-filter>
+</div>
+
+<!-- 
 <div *ngIf="isAddVisible">
   <app-add 
   (onAddCancel)="onAddCancel()"
   (onAddApply)="onAddApply($event)"
   ></app-add>
-</div>
+</div> -->

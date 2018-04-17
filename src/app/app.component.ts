@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { dataEvent } from './event.model';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,8 @@ import { dataEvent } from './event.model';
 
 export class AppComponent {
   isAddVisible = false;
+  isFilterVisible: boolean = false;
+
   historyEvent = [
     {
       type: "Новость",
@@ -27,23 +30,38 @@ export class AppComponent {
     }
   ];
 
-  private toggleAddVisibility(dir: boolean) {
-    this.isAddVisible = dir;
-    console.log(dir);
+  // private toggleAddVisibility(dir: boolean) {
+  //   this.isAddVisible = dir;
+  //   console.log('add>>', dir);
+  // }
+
+  private toggleFilterVisibility(dir: boolean) {
+    this.isFilterVisible = dir;
+    console.log('filter>>', dir);
   }
 
-  openAddForm() {
-    this.toggleAddVisibility(true);
+  onFilterCancel() {
+    this.toggleFilterVisibility(false);
   }
 
-  onAddApply(eventData) {
-    this.historyEvent.push(eventData);
-    this.toggleAddVisibility(false);
-    console.log('eventData>>', eventData);
-    console.log('hist>>', this.historyEvent);
+  onFilterApply(f) {
+    console.log('filterData', f);
   }
 
-  onAddCancel() {
-    this.toggleAddVisibility(false);
+  openFilter() {
+    this.toggleFilterVisibility(true);
   }
+
+  // openAddForm() {
+  //   this.toggleAddVisibility(true);
+  // }
+
+  // onAddApply(eventData) {
+  //   this.historyEvent.push(eventData);
+  //   this.toggleAddVisibility(false);
+  // }
+
+  // onAddCancel() {
+  //   this.toggleAddVisibility(false);
+  // }
 }
